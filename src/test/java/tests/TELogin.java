@@ -31,7 +31,8 @@ public class TELogin extends BaseTest {
         loginPage.setUserName(generateData.usersaucedemo());
         loginPage.setPassword(generateData.passsaucedemo());
 
-        //
+        //Prueba para login
+        //prueba new
     }
 
 
