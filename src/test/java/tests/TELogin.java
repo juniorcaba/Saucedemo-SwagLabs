@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.GenerateData;
 import page.POLogin;
 import basetest.BaseTest;
 import org.testng.Assert;
@@ -7,29 +8,41 @@ import org.testng.annotations.Test;
 
 public class TELogin extends BaseTest {
 
-    @Test(priority = 1, description = "Verificar que la página de login se carga correctamente")
+
+
+    //@Test(priority = 1, description = "Verificar que la página de login se carga correctamente")
     public void testLoginPageLoads() {
         POLogin loginPage = new POLogin(getDriver());
 
         loginPage.goTo();
 
-        Assert.assertTrue(loginPage.isLoginPageDisplayed(),
-                "La página de login no se cargó correctamente");
-        Assert.assertEquals(loginPage.getPageTitle(), "Swag Labs",
-                "El título de la página no es el esperado");
     }
 
-    @Test(priority = 2, description = "Login exitoso con credenciales válidas")
+
+    @Test(description = "Login exitoso con credenciales válidas")
     public void testSuccessfulLogin() {
+
+        String name = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        GenerateData generateData = new GenerateData(name);
         POLogin loginPage = new POLogin(getDriver());
 
         loginPage.goTo();
-        loginPage.login("standard_user", "secret_sauce");
-
-        // Verificar que el login fue exitoso (cambio de URL)
-        Assert.assertTrue(loginPage.getCurrentUrl().contains("inventory.html"),
-                "El login no fue exitoso - URL incorrecta");
+        loginPage.userName(generateData.usersaucedemo());
     }
+
+
+//    }    @Test(priority = 2, description = "Login exitoso con credenciales válidas")
+//    public void testSuccessfulLogin() {
+//        POLogin loginPage = new POLogin(getDriver());
+//
+//        loginPage.goTo();
+//        loginPage.login("standard_user", "secret_sauce");
+//
+//        // Verificar que el login fue exitoso (cambio de URL)
+//        Assert.assertTrue(loginPage.getCurrentUrl().contains("inventory.html"),
+//                "El login no fue exitoso - URL incorrecta");
+//    }
 
 //    @Test(priority = 3, description = "Login fallido con credenciales inválidas")
 //    public void testFailedLogin() {

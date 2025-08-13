@@ -2,9 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Selenium Automation Suite" verbose="1">
 
-    <parameter name="browser" value="chrome"/>
-
     <test name="Login Tests">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.TELogin"/>
         </classes>
