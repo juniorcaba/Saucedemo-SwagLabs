@@ -36,7 +36,11 @@ public class GetDataUser {
         VIVIENDA("Vivienda"),
         PROVINCIATC("ProvinciaTC"),
         FECHAEXPEDICION("fechaExpedicion"),
-        TIPODEINGRESO("tipoingreso");
+        TIPODEINGRESO("tipoingreso"),
+
+        USERSAUCEDEMO("username"),
+        PASSSAUCEDEMO("passwordH"),
+        METHODTEST("testmethod");
 
 
         String dato;

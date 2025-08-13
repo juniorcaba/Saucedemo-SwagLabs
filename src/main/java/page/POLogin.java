@@ -2,8 +2,13 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import page.BasePage;
 import basetest.BaseTest;
+
+import java.time.Duration;
 
 public class POLogin extends BasePage {
 
@@ -14,51 +19,57 @@ public class POLogin extends BasePage {
     private final By errorMessage = By.cssSelector("[data-test='error']");
     private final By loginLogo = By.className("login_logo");
 
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+
     // Constructor
     public POLogin(WebDriver driver) {
         super(driver);
     }
 
-//    // Métodos de página
-//    public void openLoginPage() {
-//        goTo("https://www.saucedemo.com/v1/");
-//    }
+
 
     public void goTo(){
        BaseTest.getDriver().get("https://www.saucedemo.com/v1/");
        BaseTest.createStep("Ingresa a la pagina de Saucedemo", true, true);
     }
 
-    public void enterUsername(String username) {
-        typeByLocator(usernameField, username);
+    public void userName(String usuario){
+        wait.until(ExpectedConditions.elementToBeClickable(usernameField)).sendKeys(usuario);
+        BaseTest.createStep("Ingreso el usuario", true, true);
+
     }
 
-    public void enterPassword(String password) {
-        typeByLocator(passwordField, password);
-    }
-
-    public void clickLoginButton() {
-        clickByLocator(loginButton);
-    }
-
-    public void login(String username, String password) {
-        enterUsername(username);
-        enterPassword(password);
-        clickLoginButton();
-    }
-
-    public boolean isLoginPageDisplayed() {
-        return isElementVisible(loginLogo);
-    }
-
-    public String getErrorMessage() {
-        if (isElementVisible(errorMessage)) {
-            return getTextByLocator(errorMessage);
-        }
-        return "";
-    }
-
-    public boolean isErrorMessageDisplayed() {
-        return isElementVisible(errorMessage);
-    }
+//    public void enterUsername(String username) {
+//        typeByLocator(usernameField, username);
+//    }
+//
+//    public void enterPassword(String password) {
+//        typeByLocator(passwordField, password);
+//    }
+//
+//    public void clickLoginButton() {
+//        clickByLocator(loginButton);
+//    }
+//
+//    public void login(String username, String password) {
+//        enterUsername(username);
+//        enterPassword(password);
+//        clickLoginButton();
+//    }
+//
+//    public boolean isLoginPageDisplayed() {
+//        return isElementVisible(loginLogo);
+//    }
+//
+//    public String getErrorMessage() {
+//        if (isElementVisible(errorMessage)) {
+//            return getTextByLocator(errorMessage);
+//        }
+//        return "";
+//    }
+//
+//    public boolean isErrorMessageDisplayed() {
+//        return isElementVisible(errorMessage);
+//    }
 }
