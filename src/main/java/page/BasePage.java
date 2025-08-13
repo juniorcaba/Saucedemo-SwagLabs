@@ -23,7 +23,7 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-//    // Método para navegar a una URL específica
+//    // Metodo para navegar a una URL específica
 //    public void goTo(String url) {
 //        driver.get(url);
 //        BaseTest.createStep("Navegando a la URL: " + url, true, true);

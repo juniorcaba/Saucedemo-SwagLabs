@@ -34,10 +34,15 @@ public class POLogin extends BasePage {
        BaseTest.createStep("Ingresa a la pagina de Saucedemo", true, true);
     }
 
-    public void userName(String usuario){
+    public void setUserName(String usuario){
         wait.until(ExpectedConditions.elementToBeClickable(usernameField)).sendKeys(usuario);
         BaseTest.createStep("Ingreso el usuario", true, true);
 
+    }
+
+    public void setPassword(String password){
+        wait.until(ExpectedConditions.elementToBeClickable(passwordField)).sendKeys(password);
+        BaseTest.createStep("Ingreso contraseña", true, true);
     }
 
 //    public void enterUsername(String username) {

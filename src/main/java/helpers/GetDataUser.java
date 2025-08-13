@@ -10,7 +10,7 @@ public class GetDataUser {
         //LoginSinCapcha
         CEDULA("cedula"),
         USERS("usuario"),
-        PASSWORD("password"),
+        //PASSWORD("password"),
         NEWPASSWORD("newPassword"),
         NUMEROREFERENCIA("numeroReferencias"),
         IDENTIFICACION("identificacion"),
@@ -39,7 +39,7 @@ public class GetDataUser {
         TIPODEINGRESO("tipoingreso"),
 
         USERSAUCEDEMO("username"),
-        PASSSAUCEDEMO("passwordH"),
+        PASSSAUCEDEMO("password"),
         METHODTEST("testmethod");
 
 
