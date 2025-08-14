@@ -1,6 +1,6 @@
 package page;
 
-import basetest.BaseTest;
+import baseTest.BaseTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.time.Duration;
-import java.util.List;
+
 
 public class BasePage {
     protected WebDriver driver;
