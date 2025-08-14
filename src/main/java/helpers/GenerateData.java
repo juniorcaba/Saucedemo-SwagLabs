@@ -130,7 +130,11 @@ public class GenerateData {
 
     public String usersaucedemo(){return usersaucedemo;}
     public String passsaucedemo(){return passsaucedemo;}
+<<<<<<< Updated upstream
     public String methodtest(){return methodtest;}
 
 
 }
+=======
+    public String methodtest(){return methodtest;}
+>>>>>>> Stashed changes
