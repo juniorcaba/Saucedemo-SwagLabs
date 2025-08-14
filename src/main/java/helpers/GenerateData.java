@@ -13,7 +13,7 @@ public class GenerateData {
     private  String urlAmbiente ="";
 
     private String users = "";
-    private String pass = "";
+    //private String pass = "";
     private String newPass = "";
     private String refNumber = "";
     private String identificacions = "";
@@ -55,7 +55,7 @@ public class GenerateData {
         dataTest = RouteData.obtenerDatosPrueba(dataSet, dato);
 
         users = dataTest.get(GetDataUser.enumElementsTest.USERS.getDato());
-        pass = dataTest.get(GetDataUser.enumElementsTest.PASSWORD.getDato());
+        //pass = dataTest.get(GetDataUser.enumElementsTest.PASSWORD.getDato());
         refNumber = dataTest.get(GetDataUser.enumElementsTest.NUMEROREFERENCIA.getDato());
         identificacions =dataTest.get(GetDataUser.enumElementsTest.IDENTIFICACION.getDato());
         tipoIdentificacion=dataTest.get(GetDataUser.enumElementsTest.TIPOIDENTIFICACION.getDato());
@@ -94,7 +94,7 @@ public class GenerateData {
 
     public String url(){return urlAmbiente;}
     public String user(){return users;}
-    public String password(){return pass;}
+    //public String password(){return pass;}
     public String newPassword(){return newPass;}
     public String refNumber(){return refNumber;}
     public String identificacion(){return identificacions;}
@@ -129,8 +129,8 @@ public class GenerateData {
 
 
     public String usersaucedemo(){return usersaucedemo;}
-    private String passsaucedemo(){return passsaucedemo;}
-    private String methodtest(){return methodtest;}
+    public String passsaucedemo(){return passsaucedemo;}
+    public String methodtest(){return methodtest;}
 
 
 }

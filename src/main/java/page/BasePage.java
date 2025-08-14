@@ -1,13 +1,10 @@
 package page;
 
 import basetest.BaseTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.JavascriptExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.time.Duration;
@@ -23,7 +20,7 @@ public class BasePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-//    // Método para navegar a una URL específica
+//    // Metodo para navegar a una URL específica
 //    public void goTo(String url) {
 //        driver.get(url);
 //        BaseTest.createStep("Navegando a la URL: " + url, true, true);
@@ -150,5 +147,14 @@ public class BasePage {
 
     public String getPageTitle() {
         return driver.getTitle();
+    }
+
+    public void clickOn(By element){
+        try{
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            driver.findElement(element).click();
+        }catch (NoSuchContextException e){
+            logger.error("Error Class BasePage in method clickOn", e);
+        }
     }
 }

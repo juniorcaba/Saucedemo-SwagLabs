@@ -28,7 +28,12 @@ public class TELogin extends BaseTest {
         POLogin loginPage = new POLogin(getDriver());
 
         loginPage.goTo();
-        loginPage.userName(generateData.usersaucedemo());
+        loginPage.setUserName(generateData.usersaucedemo());
+        loginPage.setPassword(generateData.passsaucedemo());
+        loginPage.clicBotonLogin();
+        loginPage.clickOn;
+
+
     }
 
 
