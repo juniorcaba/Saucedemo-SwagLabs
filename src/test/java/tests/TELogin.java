@@ -32,8 +32,7 @@ public class TELogin extends BaseTest {
         loginPage.setPassword(generateData.passsaucedemo());
         loginPage.clicBotonLogin();
 
-        //Prueba para login
-        //prueba new
+
     }
 
 
