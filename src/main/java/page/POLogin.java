@@ -31,8 +31,8 @@ public class POLogin extends BasePage {
 
 
     public void goTo(){
-       BaseTest.getDriver().get("https://www.saucedemo.com/v1/");
-       BaseTest.createStep("Ingresa a la pagina de Saucedemo", true, true);
+        BaseTest.getDriver().get("https://www.saucedemo.com/v1/");
+        BaseTest.createStep("Ingresa a la pagina de Saucedemo", true, true);
     }
 
     public void setUserName(String usuario){
