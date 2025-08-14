@@ -157,4 +157,12 @@ public class BasePage {
             logger.error("Error Class BasePage in method clickOn", e);
         }
     }
+
+    public static void pause(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restablece el estado de interrupción
+        }
+    }
 }
