@@ -1,5 +1,6 @@
 package page;
 
+import org.jsoup.Connection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,6 +44,16 @@ public class POLogin extends BasePage {
     public void setPassword(String password){
         wait.until(ExpectedConditions.elementToBeClickable(passwordField)).sendKeys(password);
         BaseTest.createStep("Ingreso contraseña", true, true);
+    }
+
+    public void clicBotonLogin(){
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+            clickOn(loginButton);
+            BaseTest.createStep("Dar clic al boton login", true, true);
+        }catch (Exception e){
+            System.out.println("Error " + e.getMessage());
+        }
     }
 
 //    public void enterUsername(String username) {
