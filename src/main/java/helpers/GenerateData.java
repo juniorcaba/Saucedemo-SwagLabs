@@ -6,11 +6,10 @@ import java.util.Map;
 public class GenerateData {
 
 
-
     Map<String, String> dataTest;
     List<Map<String, String>> dataSet;
 
-    private  String urlAmbiente ="";
+    private String urlAmbiente = "";
 
     private String users = "";
     //private String pass = "";
@@ -20,7 +19,7 @@ public class GenerateData {
     private String tipoIdentificacion = "";
     private String lugarNacimiento = "";
     private String nombres = "";
-    private String primerApellido ="";
+    private String primerApellido = "";
     private String segundoApellido = "";
     private String tipoReferencia = "";
     private String nivelAcadamico = "";
@@ -39,8 +38,8 @@ public class GenerateData {
     private String provinciatc = "";
     private String fechaVencimiento = "";
     private String fechaExpedicion = "";
-    private  String userpega = "";
-    private  String paswordpega = "";
+    private String userpega = "";
+    private String paswordpega = "";
     private String tipoingreo = "";
     private String usuarioHector = "";
 
@@ -57,8 +56,8 @@ public class GenerateData {
         users = dataTest.get(GetDataUser.enumElementsTest.USERS.getDato());
         //pass = dataTest.get(GetDataUser.enumElementsTest.PASSWORD.getDato());
         refNumber = dataTest.get(GetDataUser.enumElementsTest.NUMEROREFERENCIA.getDato());
-        identificacions =dataTest.get(GetDataUser.enumElementsTest.IDENTIFICACION.getDato());
-        tipoIdentificacion=dataTest.get(GetDataUser.enumElementsTest.TIPOIDENTIFICACION.getDato());
+        identificacions = dataTest.get(GetDataUser.enumElementsTest.IDENTIFICACION.getDato());
+        tipoIdentificacion = dataTest.get(GetDataUser.enumElementsTest.TIPOIDENTIFICACION.getDato());
         lugarNacimiento = dataTest.get(GetDataUser.enumElementsTest.LUGARNACIMIENTO.getDato());
         newPass = dataTest.get(GetDataUser.enumElementsTest.NEWPASSWORD.getDato());
 
@@ -92,42 +91,141 @@ public class GenerateData {
 
     }
 
-    public String url(){return urlAmbiente;}
-    public String user(){return users;}
+    public String url() {
+        return urlAmbiente;
+    }
+
+    public String user() {
+        return users;
+    }
+
     //public String password(){return pass;}
-    public String newPassword(){return newPass;}
-    public String refNumber(){return refNumber;}
-    public String identificacion(){return identificacions;}
-    public String lugarNacimiento(){return lugarNacimiento;}
-    public String tipoIdentification(){return tipoIdentificacion;}
-    public String nombres(){return nombres;}
-    public String primerApellido(){return primerApellido;}
-    public String segundoApellido(){return segundoApellido;}
-    public String tipoReferencia(){return tipoReferencia;}
-    public String levelAcademic(){return nivelAcadamico;}
-    public String occupation(){return ocupacion;}
-    public String ingresoMensual(){return ingresoMensual;}
-    public String street(){return calle;}
-    public String number(){return numero;}
-    public String livingPlace(){return vivienda;}
-    public String antiquity(){return antiguedad;}
-    public String business(){return empresa;}
-    public String position(){return cargo;}
-    public String typeingreso(){return tipoingreo;}
+    public String newPassword() {
+        return newPass;
+    }
 
-    public String province(){return provincia;}
-    public String municipality(){return municipio;}
-    public String sector(){return sector;}
-    public String paraje(){return testParaje;}
-    public String provinceTC(){return provinciatc;}
-    public String fechaVencimiento(){return fechaVencimiento;}
-    public String fechaExpedicion(){return fechaExpedicion;}
+    public String refNumber() {
+        return refNumber;
+    }
 
-    public String userPega(){return userpega;}
-    public String passwordPega(){return paswordpega;}
-    public String usuarioHector(){return usuarioHector;}
+    public String identificacion() {
+        return identificacions;
+    }
+
+    public String lugarNacimiento() {
+        return lugarNacimiento;
+    }
+
+    public String tipoIdentification() {
+        return tipoIdentificacion;
+    }
+
+    public String nombres() {
+        return nombres;
+    }
+
+    public String primerApellido() {
+        return primerApellido;
+    }
+
+    public String segundoApellido() {
+        return segundoApellido;
+    }
+
+    public String tipoReferencia() {
+        return tipoReferencia;
+    }
+
+    public String levelAcademic() {
+        return nivelAcadamico;
+    }
+
+    public String occupation() {
+        return ocupacion;
+    }
+
+    public String ingresoMensual() {
+        return ingresoMensual;
+    }
+
+    public String street() {
+        return calle;
+    }
+
+    public String number() {
+        return numero;
+    }
+
+    public String livingPlace() {
+        return vivienda;
+    }
+
+    public String antiquity() {
+        return antiguedad;
+    }
+
+    public String business() {
+        return empresa;
+    }
+
+    public String position() {
+        return cargo;
+    }
+
+    public String typeingreso() {
+        return tipoingreo;
+    }
+
+    public String province() {
+        return provincia;
+    }
+
+    public String municipality() {
+        return municipio;
+    }
+
+    public String sector() {
+        return sector;
+    }
+
+    public String paraje() {
+        return testParaje;
+    }
+
+    public String provinceTC() {
+        return provinciatc;
+    }
+
+    public String fechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public String fechaExpedicion() {
+        return fechaExpedicion;
+    }
+
+    public String userPega() {
+        return userpega;
+    }
+
+    public String passwordPega() {
+        return paswordpega;
+    }
+
+    public String usuarioHector() {
+        return usuarioHector;
+    }
 
 
-    public String usersaucedemo(){return usersaucedemo;}
-    public String passsaucedemo(){return passsaucedemo;}
-    public String methodtest(){return methodtest;}
+    public String usersaucedemo() {
+        return usersaucedemo;
+    }
+
+    public String passsaucedemo() {
+        return passsaucedemo;
+    }
+
+    public String methodtest() {
+        return methodtest;
+    }
+}
