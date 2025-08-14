@@ -1,6 +1,7 @@
 package tests;
 
 import helpers.GenerateData;
+import page.BasePage;
 import page.POLogin;
 import basetest.BaseTest;
 import org.testng.Assert;
@@ -29,8 +30,12 @@ public class TELogin extends BaseTest {
 
         loginPage.goTo();
         loginPage.setUserName(generateData.usersaucedemo());
+        BasePage.pause(2);
         loginPage.setPassword(generateData.passsaucedemo());
+        BasePage.pause(2);
         loginPage.clicBotonLogin();
+        BasePage.pause(5);
+
 
 
 
