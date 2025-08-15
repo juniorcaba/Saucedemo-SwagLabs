@@ -3,9 +3,11 @@ package tests;
 import helpers.GenerateData;
 import page.BasePage;
 import page.POLogin;
-import basetest.BaseTest;
+import baseTest.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static baseTest.BaseTest.getDriver;
 
 public class TELogin extends BaseTest {
 
