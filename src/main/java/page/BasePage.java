@@ -1,6 +1,6 @@
 package page;
 
-import basetest.BaseTest;
+import baseTest.BaseTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.time.Duration;
-import java.util.List;
+
 
 public class BasePage {
     protected WebDriver driver;
@@ -155,6 +155,14 @@ public class BasePage {
             driver.findElement(element).click();
         }catch (NoSuchContextException e){
             logger.error("Error Class BasePage in method clickOn", e);
+        }
+    }
+
+    public static void pause(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restablece el estado de interrupción
         }
     }
 }
