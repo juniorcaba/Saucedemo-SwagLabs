@@ -1,24 +1,13 @@
 package helpers;
 
-import com.aventstack.extentreports.AnalysisStrategy;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-//import helpers.FileHelper;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-//import helpers.Utils;
-
 
 public class ExtentManager {
     private static ExtentReports extent;
@@ -52,13 +41,64 @@ public class ExtentManager {
         htmlReporter.config().setEncoding("utf-8");
         htmlReporter.config().setReportName("📊 SauceDemo Test Results");
 
-        // CSS personalizado para mejorar la apariencia
-        htmlReporter.config().setCss(
-                ".navbar-brand { color: #28a745 !important; font-weight: bold; } " +
-                        ".card-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; } " +
-                        ".test-pass { color: #28a745 !important; } " +
-                        ".test-fail { color: #dc3545 !important; }"
-        );
+        // CSS personalizado - solo fondo con gradiente y texto blanco simple
+        String customCSS =
+                ".navbar-brand { " +
+                        "color: #28a745 !important; " +
+                        "font-weight: bold !important; " +
+                        "} " +
+
+                        "/* Solo el contenedor del header tiene el gradiente */ " +
+                        ".card-header { " +
+                        "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; " +
+                        "border: none !important; " +
+                        "} " +
+
+                        "/* El texto del header es blanco simple, sin fondo */ " +
+                        ".card-header h1, " +
+                        ".card-header h2, " +
+                        ".card-header h3, " +
+                        ".card-header h4, " +
+                        ".card-header h5, " +
+                        ".card-header h6, " +
+                        ".card-header p, " +
+                        ".card-header span, " +
+                        ".card-header div, " +
+                        ".card-header a, " +
+                        ".card-header .card-title, " +
+                        ".card-header .test-name { " +
+                        "color: white !important; " +
+                        "background: transparent !important; " +
+                        "text-shadow: none !important; " +
+                        "text-decoration: none !important; " +
+                        "} " +
+
+                        "/* Estilos para otros headers específicos */ " +
+                        ".test-content .card-header, " +
+                        ".collapsible-header, " +
+                        ".test-header { " +
+                        "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; " +
+                        "border: none !important; " +
+                        "} " +
+
+                        "/* Texto blanco para otros headers */ " +
+                        ".test-content .card-header *, " +
+                        ".collapsible-header *, " +
+                        ".test-header * { " +
+                        "color: white !important; " +
+                        "background: transparent !important; " +
+                        "text-shadow: none !important; " +
+                        "} " +
+
+                        ".test-pass { " +
+                        "color: #28a745 !important; " +
+                        "} " +
+
+                        ".test-fail { " +
+                        "color: #dc3545 !important; " +
+                        "}";
+
+        htmlReporter.config().setCss(customCSS);
 
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
@@ -88,95 +128,4 @@ public class ExtentManager {
         return reportFilepath;
     }
 }
-//public class ExtentManager {
-//    static Logger logger = LoggerFactory.getLogger(ExtentManager.class);
-//    private static ExtentReports extent;
-//    private  ExtentManager(){}
-//
-//    public static ExtentReports getInstance(){
-//        if(extent == null) {
-//            createInstance();
-//        }
-//
-//        return extent;
-//
-//    }
-//
-//    private static String reportRoute="";
-//    private static String reportName="";
-//
-//    /** @implNote  Metodo para inicializar extent report
-//     * @return ExtentReports
-//     * @author FERNANDO PINEDA
-//     * @since 03/08/2022
-//     */
-//    public static ExtentReports createInstance() {
-//        try {
-//            extent = new ExtentReports();
-//            FileHelper.getInstance().createReportFolder();
-//            reportName=FileHelper.getInstance().createFileName(Route.getInstance().getProjectName(), ".html");
-//            reportRoute=Route.getInstance().getRouteReportFolder() +reportName;
-//            ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportRoute);
-//            sparkReporter.config().setEncoding(String.valueOf(StandardCharsets.UTF_8));
-//            sparkReporter.config().setDocumentTitle("Reportes de Automatizcaion");
-//            sparkReporter.config().setReportName(Route.getInstance().getProjectName());
-//            sparkReporter.config().setTheme(Theme.STANDARD);
-//            sparkReporter.config().setCss(FileHelper.getInstance().readPlaneTextInsideJar(Route.getInstance().getRouteCssReport()));
-//            sparkReporter.config().setJs(FileHelper.getInstance().readPlaneTextInsideJar(Route.getInstance().getRouteJavaScriptReport()).replace("projectName", Route.getInstance().getProjectName()));
-//            String xml=FileHelper.getInstance().readPlaneTextInsideJar(Route.getInstance().getRouteXmlReport());
-//            File xmlFile=FileHelper.getInstance().createFile("ExtentReport",
-//                    xml,
-//                    ".xml"
-//            );
-//            extent.setSystemInfo("USERNAME", System.getProperty("user.name"));
-//            extent.setSystemInfo("OS", System.getProperty("os.name"));
-//            sparkReporter.loadXMLConfig(xmlFile);
-//
-//            extent.attachReporter(sparkReporter);
-//            extent.setAnalysisStrategy(AnalysisStrategy.SUITE);
-//
-//        } catch (IOException e) {
-//            logger.error("Error Class ExtentManager in method createInstance", e);
-//        }
-//        return extent;
-//    }
-//
-//    /** @implNote  Metodo para obtener html del dashboard del reporte creado
-//     * @return String
-//     * @author FERNANDO PINEDA
-//     * @since 10/04/2022
-//     */
-//    public static String getDashboardHtmlFromReport(){
-//        String resultDashboard="";
-//
-//        try {
-//            File file = new File(reportRoute);
-//
-//            Document document = Jsoup.parse(file, "UTF-8");
-//
-//            Elements elements = document.getElementsByTag("script");
-//            String scriptSrc = elements.get(3).toString();
-//
-//            String scriptResult = elements.get(2).toString();
-//
-//            String dashboard = document.getElementsByAttributeValue("class", "container-fluid p-4 view dashboard-view").toString();
-//
-//            String head = document.getElementsByTag("head").toString();
-//
-//            resultDashboard=head+dashboard+scriptResult+scriptSrc;
-//        } catch (IOException e) {
-//            logger.error("Error Class ExtentManager in method getDashboardHtmlFromReport", e);
-//        }
-//        return resultDashboard;
-//
-//    }
-//
-//    public static String getReportRoute() {
-//        return reportRoute;
-//    }
-//
-//    public static String getReportName() {
-//        return reportName;
-//    }
-//
-//}
+
